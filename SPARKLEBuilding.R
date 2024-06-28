@@ -21,14 +21,57 @@ usethis::use_data(cwas.test,cwas.test.data,cwas.test.data.single.model,cwas.test
 
 Target_names <- readRDS("I:\\BaiduSyncdisk\\DT20230523已备份\\DT20230801\\20231104CWAS\\20240519DrugTarget\\Target_names0522.rds")
 
+
 usethis::use_data(Target_names,overwrite = T)
 
 
+covid.data <- readRDS("COVID2024-01-17105618.rds")
+covid.data$dataset
+covid.data$sampleID
+covid.data$cellratio <- covid.data$num/covid.data$allnum
+covid.data$tissue
+covid.data$severity
+covid.data <- covid.data[,c("sampleID","celltype","cellratio","dataset","tissue","severity")]
+usethis::use_data(covid.data,overwrite = T)
+
+
+MNP.data <- readRDS("I:\\BaiduSyncdisk\\DT20230523已备份\\DT20230801\\20231104CWAS\\20240605DrugALLcal\\MNP2021_MNP_Verse.RDS")
+
+metadata <- MNP.data@meta.data
+unique(metadata$Tissue)
+usethis::use_data(metadata,overwrite = T)
+
+
+gene_names <- paste0("Gene", 1:1000)
+cell_names <- paste0("Cell", 1:100)
+expression_matrix <- matrix(rpois(1000 * 100, lambda = 5), nrow = 1000, ncol = 100)
+rownames(expression_matrix) <- gene_names
+colnames(expression_matrix) <- cell_names
+
+# 创建 Seurat 对象
+seurat_object <- CreateSeuratObject(counts = expression_matrix, project = "ExampleProject")
+seurat_object@meta.data <- metadata
+
+usethis::use_data(seurat_object,overwrite = T)
+
+
+
+
+
+
+
+
+
+
+
+######################################################################依赖包######################
 
 # 安装和加载 usethis 包（如果尚未安装）
 if (!requireNamespace("usethis", quietly = TRUE)) {
   install.packages("usethis")
 }
+
+
 
 # 加载 usethis 包
 library(usethis)
@@ -76,7 +119,7 @@ for (pkg in import_packages) {
 }
 
 
-##########
+##########安装###########################
 
 detach("package:SPARKLE", unload = TRUE)
 

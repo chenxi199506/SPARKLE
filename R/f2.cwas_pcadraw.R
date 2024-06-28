@@ -22,7 +22,7 @@ cwas_pcadraw <- function(cwas.data,div_group="Phenotype"){
   names(df) <- c("Sample","Celltype","rate","div_group")
 
   df$div_group <- ifelse(df$div_group=="Disease",myattr$Disease_label,myattr$Control_label)
-
+  df <- dplyr::distinct(df)
   wide_df <- tidyr::spread(df, key = Celltype, value = rate)
   wide_df[is.na(wide_df)] <- 0
   data <- t(wide_df[, !(names(wide_df) %in% c("Sample", "div_group"))])

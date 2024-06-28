@@ -4,7 +4,7 @@
 \alias{cwas_allmodel_cal}
 \title{Calculate Results for Models of a Single Cell Type}
 \usage{
-cwas_allmodel_cal(cwas.data, link_function = "binomial")
+cwas_allmodel_cal(cwas.data, link_function = "binomial", method = "mix_effect")
 }
 \arguments{
 \item{cwas.data}{The CWAS data containing model information.}

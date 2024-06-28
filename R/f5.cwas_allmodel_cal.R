@@ -10,7 +10,7 @@
 #' @export
 #'
 
-cwas_allmodel_cal <- function(cwas.data,link_function="binomial"){
+cwas_allmodel_cal <- function(cwas.data,link_function="binomial",method="mix_effect"){
 
 
   ###' @examples  cwas_allmodel_cal(cwas.test.data)
@@ -31,8 +31,6 @@ cwas_allmodel_cal <- function(cwas.data,link_function="binomial"){
   allcelltype <- unique(cwas.data$Celltype)
 
 
-  i=5
-
   for (i in 1:length(allcelltype)) {
 
     #celldf <- cwas.data %>% dplyr::select_all() %>% dplyr::filter(Celltype==allcelltype[i])
@@ -43,6 +41,7 @@ cwas_allmodel_cal <- function(cwas.data,link_function="binomial"){
       mdlist[[i]]="null"
 
 #print(length(celldf$Sample))
+if(method=="mix_effect"){
 
     # 尝试执行混合模型
     tryCatch({
@@ -61,8 +60,22 @@ cwas_allmodel_cal <- function(cwas.data,link_function="binomial"){
     }
 
     print(i)
+}else if(method=="fix_effect"){
 
-  }
+  mdlist[[i]]<- cwas_model_cal_fix(cwas.data = celldf, selectedcelltype = allcelltype[i], link = link_function)
+
+}else if(method=="all"){
+
+  mdlist[[i]] <-  cwas_model_cal_mix2(cwas.data = celldf, selectedcelltype = allcelltype[i], link = link_function)
+
+}else{
+
+  print("Please select method for [mix_effect],[fix_effect],or[all]")
+
+}
+
+
+}
 
   names( mdlist) <- allcelltype
 
