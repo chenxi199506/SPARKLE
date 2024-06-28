@@ -6,6 +6,8 @@
 #'
 #' @return A data frame with results of Hausman test for each Celltype
 #'
+#' @export
+#'
 cwas_hausman_test_all <- function(cwas.data, variable, family= "binomial"){
 
   hausman_test <- function(cwas.data, variable, family= "binomial",cellname="cellnames") {
