@@ -14,10 +14,10 @@ cwas_hausman_test_all <- function(cwas.data, variable, family= "binomial"){
 
     cwas.data$variable <- cwas.data[,variable]
 
-    if (celldf$Phenotype[1] %in% c(0, 1)) {
+    if (cwas.data$Phenotype[1] %in% c(0, 1)) {
     }
     else {
-      celldf$Phenotype <- ifelse(celldf$Phenotype == "Control",
+      cwas.data$Phenotype <- ifelse(cwas.data$Phenotype == "Control",
                                  0, 1)
     }
 
@@ -29,7 +29,7 @@ cwas_hausman_test_all <- function(cwas.data, variable, family= "binomial"){
 
     # 提取系数和协方差矩阵
     fixed_coef <- coef(summary(fixed_model))[, "Estimate"]
-    random_coef <- fixef(random_model)
+    random_coef <- lme4::fixef(random_model)
     fixed_cov <- stats::vcov(fixed_model)
     random_cov <- as.matrix(stats::vcov(random_model))
 
