@@ -1,6 +1,7 @@
 # SPARKLE - Single-cell Phenotype Association Research Kit for Large-scale dataset Exploration
 
-SPARKLE is based on generalized linear mixed models (GLMM) for large-scale single-cell cell-phenotype association analysis. SPARKLE supports the flexibly inclusion of metadata variables as covariates to mitigate the impact of heterogeneity on result accuracy.
+SPARKLE is based on generalized linear mixed models (GLMM) for large-scale single-cell cell-phenotype association analysis. SPARKLE supports the flexibly inclusion of metadata variables as covariates to mitigate the impact of heterogeneity on result accuracy.<img src='https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic1.png' align="right" height="138" /></a>
+
 
 ![pic](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic1.png)
 
