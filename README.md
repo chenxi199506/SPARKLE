@@ -1,5 +1,5 @@
 
-# SPARKLE - Single-cell Phenotype Association Research Kit for Large-scale dataset Exploration <a href='https://tidyverse.tidyverse.org'><img src='tutorial/figure/logo.png' align="right" height="138" /></a>
+# SPARKLE - Single-cell Phenotype Association Research Kit for Large-scale dataset Exploration <a href='https://tidyverse.tidyverse.org'><img src='tutorial/figure/logo1.png' align="right" height="138" /></a>
 
 <!-- badges: start -->
 
