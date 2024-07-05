@@ -2,7 +2,7 @@
 
 SPARKLE is based on generalized linear mixed models (GLMM) for large-scale single-cell cell-phenotype association analysis. SPARKLE supports the flexibly inclusion of metadata variables as covariates to mitigate the impact of heterogeneity on result accuracy.
 
-[SPARKLE/tutorial/figure/pic1.png at master · chenxi199506/SPARKLE (github.com)](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic1.png)
+![pic](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic1.png)
 
 ## Installation
 
@@ -20,7 +20,7 @@ Running the package requires a working R environment (>\=4.0).
 
 *   SPARKLE supports moderation effect analysis between cells and generates network diagrams.（SPARKLE支持细胞间的调节效应分析，绘制网络图。）
 
-[SPARKLE/tutorial/figure/pic2.png at master · chenxi199506/SPARKLE (github.com)](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic2.png)
+![pic2](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic2.png)
 
 ## **Tutorials**
 
