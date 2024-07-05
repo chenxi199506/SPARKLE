@@ -22,6 +22,7 @@ Running the package requires a working R environment (>\=4.0).
 *   SPARKLE supports moderation effect analysis between cells and generates network diagrams.（SPARKLE支持细胞间的调节效应分析，绘制网络图。）
 
 ![pic2](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic2.png)
+![pic3](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic3.png)
 
 ## **Tutorials**
 
@@ -29,5 +30,5 @@ Running the package requires a working R environment (>\=4.0).
 
 SPARKLE provides 4 cases for users. All data involves in the cases were in the package.
 
-[SPARKLE/tutorial/result.html at master · chenxi199506/SPARKLE (github.com)](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/result.html)
+[01 Supported Data Input Formats](https://rpubs.com/chenxi/1202118)
 
