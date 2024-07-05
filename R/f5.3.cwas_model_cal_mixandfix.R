@@ -341,8 +341,6 @@ cwas_model_cal_mix2 <- function (cwas.data, selectedcelltype = "selectedcelltype
       formula.result <- unlist(lapply(fitfix, getfixfomula))
       AIC.result <- unlist(lapply(fitfix, AIC))
       pvalue.result <- unlist(lapply(fitfix, getpvalue))
-
-      summary(model1)
       fitresfixall <- data.frame(id=paste0(0,seq(1:length(fitfix))),model=paste0("model 0",seq(1:length(fitfix))),celltype=selectedcelltype,
                                  formula=  formula.result , AIC=AIC.result,Pvalue=pvalue.result  )
     }

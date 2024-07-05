@@ -284,8 +284,8 @@ cwas_build_model_data <- function(inputdata,Sample="orig.ident",Phenotype,Cellty
   myattr$Phenotype <- Phenotype
   myattr$Group <- Group
   myattr$Subgroup <- Subgroup
-  myattr$Covariate1 <- Covariate1
-  myattr$Covariate2 <- Covariate2
+  myattr$Cov1 <- Covariate1
+  myattr$Cov2 <- Covariate2
   myattr$Control_label <- Control_label
   myattr$Disease_label <- Disease_label
   myattr$Cellrate <- Cellrate

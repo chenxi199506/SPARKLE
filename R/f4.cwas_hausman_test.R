@@ -64,14 +64,25 @@ cwas_hausman_test_all <- function(cwas.data, variable, family= "binomial"){
 
     #cwas.data.selected <-  cwas.data%>% dplyr::select_all() %>% dplyr::filter(Celltype==cellnamesall[i])
     cwas.data.selected <- subset(cwas.data, Celltype == cellnamesall[i])
-    df <- hausman_test(cwas.data = cwas.data.selected,family =family ,variable = variable,cellname =cellnamesall[i]  )
-    dfall <- rbind(df,dfall)
+
+    df <- tryCatch({
+      hausman_test(cwas.data = cwas.data.selected, family = family, variable = variable, cellname = cellnamesall[i])
+    }, error = function(e) {
+      message("Error in hausman_test for celltype: ", cellnamesall[i], ". Skipping this celltype.")
+      return(NULL) # 返回 NULL 以便后续处理
+    })
+
+    # 如果 df 不为 NULL，则将其绑定到 dfall
+    if (!is.null(df)) {
+      dfall <- rbind(dfall, df)
+    }
+
 
   }
   myattr <- attributes(cwas.data)
 
   dfall$Varible <- paste0(variable," : ",myattr[[which(names(myattr)==variable)]])
-
+  #print(myattr[[which(names(myattr)==variable)]])
   return(dfall)
 
 }
