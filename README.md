@@ -1,6 +1,4 @@
 
-![pic](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/logo2.png)
-
 # SPARKLE - Single-cell Phenotype Association Research Kit for Large-scale dataset Exploration <a href='https://tidyverse.tidyverse.org'><img src='tutorial/figure/logo.png' align="right" height="138" /></a>
 
 <!-- badges: start -->
