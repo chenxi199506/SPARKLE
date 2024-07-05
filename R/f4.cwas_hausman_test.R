@@ -48,9 +48,9 @@ cwas_hausman_test_all <- function(cwas.data, variable, family= "binomial"){
       model_choice <- "Random Effects Model"
     }
 
-    cat("Hausman Statistic: ", hausman_stat, "\n")
-    cat("P-value: ", p_value, "\n")
-    cat("Model Selection: ", model_choice, "\n")
+    # cat("Hausman Statistic: ", hausman_stat, "\n")
+    # cat("P-value: ", p_value, "\n")
+    # cat("Model Selection: ", model_choice, "\n")
 
     result <- data.frame(Celltype=cellname,Hausman_Statistic=hausman_stat,Pvalue=p_value,Model_Selection=model_choice)
 

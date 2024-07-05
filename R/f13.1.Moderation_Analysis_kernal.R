@@ -51,7 +51,7 @@ moderation_analysis_auto <- function(cwas.data,Best_model, X.cell=NULL,X.gene=NU
 
     Group_info <- gsub("1|rate|\\(|\\)|\\||\\|\\|", "", Random_effect)
     Group_info <- gsub(" ", "", Group_info)
-    if (grepl("/", Group_info)) {
+    if (grepl("/", Group_info[1])) {
       Group_info <- strsplit(Group_info, "/")[[1]]
     } else {
       Group_info
@@ -61,17 +61,28 @@ moderation_analysis_auto <- function(cwas.data,Best_model, X.cell=NULL,X.gene=NU
     Covariate <- Covariate[Covariate != ""]
     # 返回一个列表，包含 Fixeffect, Random_effect 和 T
     ratename<- gsub("-", "_",ratename)
-    if(clean){Cleaned_random_effect <- gsub("rate", ratename, Random_effect)
-    }else{Cleaned_random_effect <- Random_effect }
+
+    if(length(Random_effect)>1){
+      Random_effect <- Random_effect[2]
+    }
+    Cleaned_random_effect <- gsub("rate", ratename, Random_effect)
+        # if(clean){Cleaned_random_effect <- gsub("rate", ratename, Random_effect)
+    # }else{Cleaned_random_effect <- Random_effect }
     return(list(Fixeffect = Fixeffect, Random_effect = Cleaned_random_effect,Group_info=Group_info,Covariate=Covariate))
   }
 
+  replace_double_pipe <- function(vector) {
+    # 使用gsub函数替换所有"||"为"|"
+    vector <- gsub("\\|\\|", "|", vector)
+    return(vector)
+  }
 
   getfomula <- function(X.cell,Cleaninfo=T){
     names(Best_model[["Chosen_model"]])  <- names(Best_model[["All_models"]])
     names(Best_model[["Chosen_model"]]) <- gsub("-", "_", names(Best_model[["Chosen_model"]]) )
     X.cell.fomula <- as.character(Best_model[["Chosen_model"]][[X.cell]]@call[["formula"]])[3]
     X.cell.fomula <- strsplit(X.cell.fomula, " \\+ ")[[1]]
+    #X.cell.fomula <-replace_double_pipe(X.cell.fomula )
     X.cell.fomula.result <- formula_process_string_vector(X.cell.fomula,ratename = X.cell,clean = Cleaninfo)
 
     return(X.cell.fomula.result)

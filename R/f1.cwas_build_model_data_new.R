@@ -304,6 +304,7 @@ cwas_build_model_data <- function(inputdata,Sample="orig.ident",Phenotype,Cellty
   }
 
 
+  celldf$Celltype <- gsub("-","_",celldf$Celltype)
 
   sf.rds(celldf, "01CWAS_data")
 
