@@ -35,3 +35,7 @@ SPARKLE provides 4 cases for users. All data involves in the cases were in the p
 
 [Tutorials 01 Supported Data Input Formats](https://rpubs.com/chenxi/1202118)
 
+[Tutorials 02 Example Case: COVID19 dataset](https://rpubs.com/chenxi/1202302)
+
+
+
