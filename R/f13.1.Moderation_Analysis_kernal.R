@@ -82,7 +82,7 @@ moderation_analysis_auto <- function(cwas.data,Best_model, X.cell=NULL,X.gene=NU
     names(Best_model[["Chosen_model"]]) <- gsub("-", "_", names(Best_model[["Chosen_model"]]) )
     X.cell.fomula <- as.character(Best_model[["Chosen_model"]][[X.cell]]@call[["formula"]])[3]
     X.cell.fomula <- strsplit(X.cell.fomula, " \\+ ")[[1]]
-    #X.cell.fomula <-replace_double_pipe(X.cell.fomula )
+    X.cell.fomula <-replace_double_pipe(X.cell.fomula )
     X.cell.fomula.result <- formula_process_string_vector(X.cell.fomula,ratename = X.cell,clean = Cleaninfo)
 
     return(X.cell.fomula.result)
