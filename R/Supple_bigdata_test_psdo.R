@@ -1,6 +1,6 @@
-library(tidyverse)
-library(ggplot2)
-library(dplyr)
+# library(tidyverse)
+# library(ggplot2)
+# library(dplyr)
 pvalue <- function(covid.data.selected){
 
   if (covid.data.selected$Phenotype[1] %in% c(0, 1)) {
