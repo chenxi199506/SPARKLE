@@ -1,5 +1,5 @@
 
-# SPARKLE - Single-cell Phenotype Association Research Kit for Large-scale dataset Exploration <a href='https://rpubs.com/chenxi/1202118//'><img src='tutorial/figure/logo1.png' align="right" height="138" /></a>
+# SPARKLE - Single-cell Phenotype Association Research Kit for Large-scale dataset Exploration <a href='https://github.com/chenxi199506/SPARKLE'><img src='tutorial/figure/logo1.png' align="right" height="138" /></a>
 
 <!-- badges: start -->
 
@@ -16,7 +16,25 @@ Running the package requires a working R environment (>\=4.0).
 
 
 
-`devtools::install_github("chenxi199506/SPARKLE")`
+```
+ 
+install.packages("devtools")
+devtools::install_github("psychbruce/bruceR", dep=TRUE, force=TRUE)
+ 
+
+```
+
+>Warning
+
+For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
+
+```
+
+conda install -c anaconda cmake
+conda install -c conda-forge r-lme4
+conda install -c bioconda r-brucer
+
+```
 
 ## Capabilities
 
