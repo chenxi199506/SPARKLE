@@ -30,12 +30,15 @@ Running the package requires a working R environment (>\=4.0).
 ## **Tutorials**
 
 
-
 SPARKLE provides 4 cases for users. All data involves in the cases were in the package.
 
-[Tutorials 01 Supported Data Input Formats](https://rpubs.com/chenxi/1202118)
+[Tutorials 01: Supported Data Input Formats](https://rpubs.com/chenxi/1202118)
 
-[Tutorials 02 Example Case: COVID19 dataset](https://rpubs.com/chenxi/1202302)
+[Tutorials 02: Example Case: COVID19 dataset](https://rpubs.com/chenxi/1202302)
 
+[Tutorials 03: Example Case: MNP dataset](https://rpubs.com/chenxi/SPARKLETutorial3)
 
+[Tutorials 04: Example Case: Tcell dataset](https://rpubs.com/chenxi/1202388)
+
+[Tutorials 03: Example Case: Fibroblast dataset](https://rpubs.com/chenxi/SPARKLETutorial1)
 
