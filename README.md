@@ -12,7 +12,7 @@ SPARKLE is based on generalized linear mixed models (GLMM) for large-scale singl
 
 ## Installation
 
-Running the package requires a working R environment (>\=4.0).
+Running the package requires a working R environment (>\=3.5).
 
 
 
@@ -24,9 +24,9 @@ devtools::install_github("psychbruce/bruceR", dep=TRUE, force=TRUE)
 
 ```
 
->Warning
+>Warning: 
 
-For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
+>For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
 
 ```
 
