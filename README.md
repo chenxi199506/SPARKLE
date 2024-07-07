@@ -25,8 +25,7 @@ devtools::install_github("psychbruce/bruceR", dep=TRUE, force=TRUE)
 ```
 
 >Warning: 
-
->For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
+For Linux or MacOS users, if cmake is not installed, there might be errors during the installation of lme4 and bruceR dependencies. Please install the following first:
 
 ```
 
