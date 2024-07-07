@@ -8,6 +8,9 @@ SPARKLE is based on generalized linear mixed models (GLMM) for large-scale singl
 
 ![pic](https://github.com/chenxi199506/SPARKLE/blob/master/tutorial/figure/pic1.png)
 
+![pic](./tutorial/figure/pic1.png)
+
+
 ## Installation
 
 Running the package requires a working R environment (>\=4.0).
