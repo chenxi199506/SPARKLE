@@ -38,7 +38,7 @@ SPARKLE provides 4 cases for users. All data involves in the cases were in the p
 
 [Tutorials 03: Example Case: MNP dataset](https://rpubs.com/chenxi/SPARKLETutorial3)
 
-[Tutorials 04: Example Case: Tcell dataset](https://rpubs.com/chenxi/SPARKLETutorial2)
+[Tutorials 04: Example Case: Tcell dataset](https://rpubs.com/chenxi/SPARKLETutorial4)
 
 [Tutorials 03: Example Case: Fibroblast dataset](https://rpubs.com/chenxi/SPARKLETutorial1)
 
