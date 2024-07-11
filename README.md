@@ -19,8 +19,7 @@ Running the package requires a working R environment (>\=3.5).
 ```
  
 install.packages("devtools")
-devtools::install_github("psychbruce/bruceR", dep=TRUE, force=TRUE)
- 
+devtools::install_github("chenxi199506/SPARKLE", dep=TRUE, force=TRUE)
 
 ```
 
