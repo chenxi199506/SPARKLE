@@ -10,7 +10,6 @@
 #'
 
 
-
 Mediation_forest_plot <- function(data){
 
 
@@ -57,14 +56,39 @@ Mediation_forest_plot <- function(data){
 
   data$Pvalue <-  data$Indirect
   data$FDR <- p.adjust(data$Pvalue, method = "BH")
-  show_variable2 <- c("Model","Effect"," ","Pvalue","FDR")
-  data$" " <- paste(rep(" ", length(data[,1])), collapse = " ")
+  data$Mediation <-gsub("^.*Mediation:","",data$Model)
+  data$Celltype <-gsub("^.*X:","",data$Model)
+  data$Celltype <-gsub("Mediation.*","",  data$Celltype)
+
+  numeric_cols <- sapply(data, is.numeric)
+  data[numeric_cols] <- lapply(data[numeric_cols], function(x) round(x, 2))
+  data$OR<- c(data$CI_lower+data$CI_upper)
+  data$OR<- data$OR/2
+
+  data$sig <- ifelse(data$Pvalue<0.001,"***",
+                       ifelse(data$Pvalue<0.01,"**",
+                              ifelse(data$Pvalue<0.05,"*","")))
+
+  data$Pvalue <- ifelse(data$Pvalue<0.01,"<0.01",data$Pvalue )
+  data$"P-value" <- paste0(data$Pvalue,data$sig)
+
+  data1 <- data
+  numeric_cols <- sapply(data1, is.numeric)
+  data1[numeric_cols]  <- lapply(data[numeric_cols], function(x) format(x, scientific = TRUE, digits = 2))
+
+  data$"OR(95%CI)" <- paste0(  data1$OR," ","[",data1$CI_lower,",",data1$CI_upper,"]")
+  data$OR <- ifelse(data$OR > 20, 10, data$OR)
+  data$"OR(95%CI)"[grepl("Inf", data1$OR)] <- "Not reliable"
+
+  show_variable2 <- c("Celltype","Mediation","Effect"," ","P-value")
+
+  data$" " <- paste(rep("    ", length(data[,1])), collapse = " ")
   pp <- forestploter::forest(data[,show_variable2],   # 选择要在森林图中使用的数据列，这里包括变量名列、患者数量列、绘图要用的空白列和HR（95%CI）列
                              est = data$Effect,          # 效应值，也就是HR列
                              lower = data$CI_lower,  # 置信区间下限
                              upper = data$CI_upper,  # 置信区间上限
                              sizes = 0.8,        # 黑框框的大小
-                             ci_column = 3,             # 在第3列（可信区间列）绘制森林图
+                             ci_column = 4,             # 在第3列（可信区间列）绘制森林图
                              ref_line = 0,              # 添加参考线
                              arrow_lab = c("Down regulate", "Up regulate"),  # 箭头标签，用来表示效应方向，如何设置取决于你的样本情况
                              #xlim = c(-1, 1),          # 设置x轴范围
@@ -72,7 +96,7 @@ Mediation_forest_plot <- function(data){
                              theme = tm,                # 添加自定义主题
                              footnote = "Red line:Adjusted.Pvaule<0.05")  # 添加脚注信息
 
-  pp <- forestploter::edit_plot(pp, row = which(data$FDR<0.0500001), gp = grid::gpar(col = "red4", fontface = "italic"))
+  pp <- forestploter::edit_plot(pp, row = which(data$Pvalue<0.0500001), gp = grid::gpar(col = "red4", fontface = "italic"))
   pp <- forestploter::insert_text(pp,
                                   text ="CWAS Mediation Analysis",
                                   col = 1:5,
@@ -81,3 +105,5 @@ Mediation_forest_plot <- function(data){
   pp <- forestploter::add_border(pp, part = "header", where = "bottom")
   return(pp)
 }
+
+

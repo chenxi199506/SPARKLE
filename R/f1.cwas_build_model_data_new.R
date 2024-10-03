@@ -304,7 +304,16 @@ cwas_build_model_data <- function(inputdata,Sample="orig.ident",Phenotype,Cellty
   }
 
 
+  if (length(unique(celldf$Phenotype))==1) {
+
+    print("Warning:There is only one Phenotype in this data,please check your input !")
+
+  }
+
+
   celldf$Celltype <- gsub("-","_",celldf$Celltype)
+
+  celldf <- filter_cell(celldf)
 
   sf.rds(celldf, "01CWAS_data")
 

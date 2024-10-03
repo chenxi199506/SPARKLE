@@ -73,7 +73,7 @@ if(method=="mix_effect"){
   print("Please select method for [mix_effect],[fix_effect],or[all]")
 
 }
-
+      mdlist[[i]]$inputdata <- cwas.data
 
 }
 

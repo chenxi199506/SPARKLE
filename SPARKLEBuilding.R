@@ -143,7 +143,7 @@ install.packages("MuMIn")
 install.packages("tidyr")
 install.packages("Hmisc")
 install.packages("gtools")
-package_path <- "I:\\BaiduSyncdisk\\refdatabase20220619\\Rpackage\\SPARKLE_0.1.8.tar.gz"  # ?滻Ϊ?????ļ?·??
+package_path <- "I:\\BaiduSyncdisk\\refdatabase20220619\\Rpackage\\SPARKLE_0.3.6.tar.gz"  # ?滻Ϊ?????ļ?·??
 
 # ??װ???س?????
 install.packages(package_path, repos = NULL, type = "source")
