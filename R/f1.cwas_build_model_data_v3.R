@@ -67,7 +67,7 @@ cwas_build_model_data <- function(inputdata,Sample="orig.ident",Phenotype,Cellty
     celldf <- celldfall[,c(Sample,Phenotype,Celltype)]
     colnames(celldf) <- c("Sample","Phenotype","Celltype")
     if(length(unique(celldf$Phenotype))<2){
-      stop("Phenotype less than 1 CANNOT calculate, please prowide !",
+      stop("Phenotype less than 1 CANNOT calculate, please provide !",
            call. = FALSE)
     }
 
@@ -124,7 +124,7 @@ cwas_build_model_data <- function(inputdata,Sample="orig.ident",Phenotype,Cellty
       celldf <- celldfall[,c(Sample,Phenotype,Celltype)]
       colnames(celldf) <- c("Sample","Phenotype","Celltype")
       if(length(unique(celldf$Phenotype))<2){
-        stop("Phenotype less than 1 CANNOT calculate, please prowide !",
+        stop("Phenotype less than 1 CANNOT calculate, please provide !",
              call. = FALSE)
       }
 
@@ -205,6 +205,9 @@ cwas_build_model_data <- function(inputdata,Sample="orig.ident",Phenotype,Cellty
   }else {
     return("Wrong input format, please input Seruat object or metadata dataframe file !")
   }
+
+
+  ####
 
 
   #### 增加基因信息 ####
